@@ -1,0 +1,65 @@
+{
+  "name": "YonderSpaceInvoicesTemplate",
+  "description": "Downloads Paypal, Braintree and Bank invoices",
+  "main": "Main.xaml",
+  "dependencies": {
+    "DateOperationsEntireMonth": "[1.0.3]",
+    "Microsoft.Office365.OutlookServices-V2.0": "[2.0.1.2]",
+    "UiPath.Excel.Activities": "[2.11.4]",
+    "UiPath.Mail.Activities": "[1.15.0-preview]",
+    "UiPath.System.Activities": "[21.10.4]",
+    "UiPath.UIAutomation.Activities": "[21.10.5]",
+    "UiPathTeam.TwoStepAuthentication.Activities": "[1.1.7382.28686]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "21.10.4.0",
+  "projectVersion": "1.0.3",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": [
+        "Bank.xaml",
+        "JS-Krasi.txt",
+        "Paypal/StartingPaypalTest.xaml"
+      ]
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": true
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "555014a3-b172-40f3-bf1e-0b8727a2b75a",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {
+    "defaultProjectDescription": "Blank Process",
+    "defaultProjectName": "YonderSpaceInvoicesTemplate"
+  },
+  "publishData": {}
+}
