@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1152,3422" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1030,4000" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="68">
       <x:String>System.Activities</x:String>
@@ -74,18 +74,19 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>DateOperationsEntireMonth</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="556,3257" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;1- Logs in to the Braintree website after getting credentials&#xA;2- Finds the last month's invoice to be downloaded&#xA;3- Downloads the invoice&#xA;4- Renames the invoice&#xA;5- Moves the invoice to the current month folder" DisplayName="Braintree main Sequence" sap:VirtualizedContainerService.HintSize="556,3935" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="514,3165" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="514,94" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Starting Braintree process&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="514,3463" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="476,2938" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="476,3226" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="BraintreeUser" />
             <Variable x:TypeArguments="ss:SecureString" Name="BraintreePass" />
@@ -98,15 +99,15 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
-          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Braintree-YonderSpace" DisplayName="Get Credential" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[BraintreePass]" Username="[BraintreeUser]" />
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Braintree Control Panel" sap:VirtualizedContainerService.HintSize="434,1643" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Version="V1" WindowResize="Maximize">
+          <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="434,32" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
+          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Braintree-YonderSpace" DisplayName="Get Credential" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="434,89" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[BraintreePass]" Username="[BraintreeUser]" />
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Braintree Control Panel" sap:VirtualizedContainerService.HintSize="434,1753" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Version="V1" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1427" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1527" sap2010:WorkflowViewState.IdRef="Sequence_1">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Default="C:\Users\maril\Downloads" Name="FolderDownloads" />
                   </Sequence.Variables>
@@ -115,31 +116,31 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Username'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="Simulate" ScopeIdentifier="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Text="[BraintreeUser]" Version="V1">
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Username'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="Simulate" ScopeIdentifier="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Text="[BraintreeUser]" Version="V1">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://www.braintreegateway.com/login" DesignTimeRectangle="483, 345, 400, 44" ElementType="InputBox" FriendlyName="'INPUT login'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='     Username   ' /&gt;" Guid="d78db450-7de1-46f9-aefc-a38ddf65f80f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAZQAAAAwCAYAAAA2P4zsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO7SURBVHhe7d29SiNhGIbhPQ5PQNhG7LYR0dJCK1PYWXgKtooI4hYW9jaCaEAQRMFGsBQtbVaFmIhFLEz8bTThXZ4h3zCZfJmM67AQ577ggSQ7uuXNTCbxR63eMMYYY+yrawtKca9uM3MVGxq5tJ+//jDGGGMdUyPUCjUj2pAwKEu/qzZRKFlhtmzDowSFMcaYf2qEWqFmqB1tQVFl9A86aHu3bq9vTQMAwEeNUCvUDLXDnakEQdGpi2qjAwAASEPNUDvUkDAouh6m0nBmAgBIS81QO9SQMCjuuhgAAJ/h+kFQAABfQlAAAJkgKACATBAUAEAmCAoAIBMEBQCQCYICAMgEQQEAZIKgAMA38v7+bi8vL/b4+Gi1Wi2YHuu1m5sbW1tbs4WFhVTTsdfX163f3BtBAYBv4OPjw56fn+3h4aHrbm9v7fT01NbX170B8U1RSYugAECf01mJLyDxlcvlYKVSyTY2NrwB8S0tggIAfUxnJr54+OaC4qKSdKayurpqW1tbweO0CAoA9LGky1zLy8vB3PNoUDRd/oqHxK1YLNr9/X3wOC2CAgB9qtelrunpaRsfHw+fu5BUKpXw8ebmpi0uLoYhWVlZISgAkDe6cysakOiOjo7s4ODATk5OwtcUkGq1Gjy+u7sL3qR/enoKXlc4zs/PrdlsBpEhKACQI7od2MUivoGBgWCTk5Pha76g1Ot1ggIAeafPmLhYxKczlLGxsY6gaNFLXi4mSdOtw1dXV63/tTuCAgB9KikommLiC0p0+rCjLyLxpfk8CkEBgD6VdMlLSxOUi4uLjngcHh5ao9EIzmSir/dCUACgTyW9Ka8pJoODgzY1NRU89wXl+Pi4LRpnZ2et324EBQDyotdtw/Pz821nKXoTPh6U+CfmdWfY/v4+ZygAkDe9vr8rOt21FY1K0gcbdbcXQQGAHPnMV6/Ep5+VaDTcCAoA5FDaL4eMTj/jRKPhRlAAIKfSfH29pmPcmYnj+xspei9lZ2cnfM5twwCQMzrz6PYHtqJnJVH60KIvKm58sBEA8F8RFABAJggKACATBAUAkAmCAgDIBEEBAGSCoAAAMkFQAACZICgAgEx0BGVo5NKGRy/t9a3ZOgQAgGRqhtqhhoRBmZmrWGG2bNu79dZhAAAkUzPUDjUkDEpxr24ThVJQGh3AmQoAoBs1Qq1QM9QONSQMirb0uxr8g2qjg9x1McYYYyw6NUKtUDPUDteRMCiaKqNTF10P8/0SxhhjTI1QK9yZiVtbUBhjjLF/W8P+AtNo+YhnCysHAAAAAElFTkSuQmCC" InformativeScreenshot="bc9e45ad3ac38eea170ecfae52c3468e.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Braintree Control Panel' /&gt;" SearchSteps="FuzzySelector, Image">
                         <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                             <uix:Target DesignTimeRectangle="483, 319, 56, 21" ElementType="Text" FriendlyName="'Username'" FullSelectorArgument="&lt;webctrl aaname='     Username   ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='     Username   ' tag='LABEL' type='' check:text='Username' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADwAAAAZCAYAAABtnU33AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF/SURBVFhH7ZRRbsMgDIZzUA7DTcI1Io4R5RJEWrdV20ubejbBYGgypX0k/BJVCo5/f8ZtBydTA65dDbh2NeDaFYHdoEEPLnxjTWCUwc961IBznRrYgdUKlKKlwc5+EyX3FZgxbKOmHuMG4/cpN3mYwYIOsUpbfJu1lwdrwDjb8xnVQ3WF71kO8uS41bPUceDZYrF8jvv92gYySO9R0akZ3jzEkchDFkjnDOawMbGJ6KVj3AoXGzBSA9PUybp9fuEn87NeAMZnfwPydsU5CwviPKXhk4eIzUWN47yFBzVDQKUcebO9ylhUBN42J8h8ZNbEfHNUTBqhcpT8SIsCCDjruPSk4rI8AljW8C+wfD+sXeAtuKIgy8WSaYh9hkqjeRxY3iipuOFDwNv5d0faq+yySOxG/A3HDkqQvLN6mMC9DLw+R1/Mr98AJvn/Dc6DcW5OZ6Qc+ARqwLWrAdcuD3y7PeDnd4Gv7wUun3f4uNS7uut12TyodXVbmzWvkwHf4Q8F8l64KHHD0QAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
                           </scg:List>
                         </uix:TargetAnchorable.Anchors>
                       </uix:TargetAnchorable>
                     </uix:NTypeInto.Target>
                   </uix:NTypeInto>
-                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,241" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="Simulate" IsPassword="True" ScopeIdentifier="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" SecureText="[BraintreePass]" Version="V1">
+                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,32" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,251" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="Simulate" IsPassword="True" ScopeIdentifier="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" SecureText="[BraintreePass]" Version="V1">
                     <uix:NTypeInto.Target>
                       <uix:TargetAnchorable BrowserURL="https://www.braintreegateway.com/login" DesignTimeRectangle="483, 429, 400, 44" ElementType="InputBoxPassword" FriendlyName="'INPUT password'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' aaname='     Password   ' /&gt;" Guid="10b3bb7b-bc74-499d-9a22-8380e5abbe95" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAZQAAAAwCAYAAAA2P4zsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM1SURBVHhe7d3NSuNQGIBhr7Hg9ShSFDfiNQgddCt6Cx3QvQXdKF2Im24Lopzxa5NMmppO2jnjKD4PfND8mGVfTtLWrQQAGQgKAFksBGU6nabxeJxGo1G6ubkxxhhjliYaEa2IZtRVQYkDcdJkMkmvr6/FXgBYFI2IVkQz6lGpghK1iRMAoItoRrSjVAUlSmNlAkBX0YxoR6kKStwXA4B11NshKABsTFAAyEJQAMhCUADIQlAAyEJQAMhCUADIQlAAyEJQAL6Ju7u7dHR0lHZ2djpNnBt/05WgAHwT68SknPibrgQF4Jt4LxhdpitBAfgm3otF2xweHqbBYDB73ZWgALQZD1JvayttLUwvDX7/SvuX0ozGqjk7O0tPT0+z110JCkCbIij9n8X2F1fG4uDgoHq9v7+fdnd3l44JCkBOnyAojz96b6uifhoW238j4nB9fT373yUnJyfp+Pg4PT8/p/v7+6VjggKQ06qgNG6H9X48Fgce02D7bd9eP/Xj2N48BcO93+dubfcWr9tyrXlMlvdvSlAA/pfGG/18YrUwnMWieoNfCE8RlNqqYh6T5nZ5/qpr5V+hxDRveZWv2yY+Onx7e1tcpZ2gALRpvLlXfvYbb/LlqiT21F+H+fbC6qJ+3ZXX+jdB2WS6fB9FUADatARl+U2+iMD24O1VMyiNFUioXXf1tf5PUC4vL9PLy0t6eHhY2P8nggLQpm2F0ozEbJVRntcMypq3vBauVW5/XFCurq6Ks5OgAGTTGpQ3xbH5c5X6OctBCcsP5WvfZ2m9VpgHJ/YvrHI20OWnVy4uLtL5+bkVCsCXMAvIx39Bcp0fh4xPewkKwGczHqZhLR6z1UrxjOQzqEejHEEB+HSKW2C1W1q5nonkUo9GOYICwNreuw0Wz1JOT0+rbR8bBuCP4kuLq56txDFfbATgwwgKAFkICgBZCAoAWQgKAFkICgBZCAoAWQgKAFkICgBZvBuU0Wg0+x0XAOgimhHtKFVBGY/HaTKZFFsAsFo0I9pRqoIynU5npYkTrFQAaBONiFZEM6IdpSooIQ5EbeKkuC9mjDHGNCcaEa2oxyQsBAUANiUoAGSQ0i/SKcyhB4ZBxwAAAABJRU5ErkJggg==" InformativeScreenshot="3017d7822279289fc97b7af3cc37e53f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Braintree Control Panel' /&gt;" SearchSteps="FuzzySelector, Image">
                         <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                             <uix:Target DesignTimeRectangle="483, 404, 51, 21" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;webctrl aaname='     Password   ' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='     Password   ' tag='LABEL' type='' check:text='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAAZCAYAAACVfbYAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFoSURBVFhH7ZThjcMgDIVvUIZhk7AGYoyKJcgQLg8wGCtq7qr7USqeVDWAsf3ZTn7oi7XhVtWGW1UbblUNuIcjY4z4OYrtaA1FcjZQaitogrNeHAH2WAnvL3AXxp+tNzuXvB3jKrop9/td3JtsEwVrKZz1uJyLJOCj3z0DWb5rxJ2WeDjkPvyyrSH3uIHrSeHHhjmg69Ay0fx8DGfxqO8o/0PJu2orCoc9K33YZl/A5Huek+0geAZAOSiKGVQ2A2tZNOjFWF4Lla5BUnZYOzfupZJ8KY58X5E4dxEF4Vh9v/rV8cce4DS4XENzsaFfwKG6oqOqglAdTxWsTILqUJ+CNkJTR2/gpq78ExwCSJixzs48u0fyFST6EQCjwndLotmG1+j6GM+su7FUI6fHEv7fGEsEGV3rCZ4xV0p/UGIOqj8oTTp5dFYlU204lgC/gIPKe9ZjuRcflC/UhltVG25VbbhVteHWFNETDpmXAfMKI0oAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
                           </scg:List>
                         </uix:TargetAnchorable.Anchors>
                       </uix:TargetAnchorable>
                     </uix:NTypeInto.Target>
                   </uix:NTypeInto>
-                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
-                  <uix:NClick ClickType="Single" DisplayName="Click 'Log In'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Version="V1">
+                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,32" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                  <uix:NClick ClickType="Single" DisplayName="Click 'Log In'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Version="V1">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://www.braintreegateway.com/login" DesignTimeRectangle="483, 520, 400, 40" ElementType="Button" FriendlyName="'Log In'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' aaname='Log In' check:text='Log In' /&gt;" Guid="9e2d6721-c5dc-457c-8205-c95f8f532c92" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAZQAAAAsCAYAAABCK04MAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI2SURBVHhe7drBbeJAGIbhLYWjG3MlEb2g9AEN+EiaoAKHIf4nNowD2WE5zD6f9CgSNvgS8crAn9HMzOwJExQzM3vKFkEZhmHs+37sum7cbDYAcCM1IrUiNWO+HJR0QEgAeFRqxjwqOSipNqUnAMCa1I5YDoq7EwB+K7UjloNSOhEA7okJCgBVYoICQJWYoABQJSYoAFSJCQoAVWKCAkCVmKAAUCUmKABUiQkKAFViggJAlZig0Kb34+X/+vheOPYPbA+n89VO4/6tfBxaFhMU2iQo8DIxQaFNggIvExMU2nQvKG/789v/bB+7q3O2435xwmk8XZqxH7eL875cB2X3kZ5zHI+Xv9NurgFtiAkKbfopKNOx02E7PbY7v/WnByIWU0zm8Zie87ugfF/j6/jr7pjglWKCQpt+CErcPezmj8/PvwlOUojMzNodSr7GdEe0fE1oQ0xQaNNqUFbCMI9I8bmCAmtigkKbVoPywB1K8c1fUGBNTFBo0w9ByV/I5y/JV75DmQdhej1BgVsxQaFNEYCr5Tf0iErs7q+8pgkK3IgJCjxkCoyf/sKNmKBAwfawX37HMt1hFD9Cg/9cTFDgWvHjsu+Ps4ClmKAAUCUmKABUiQkKAFViggJAlZigAFAlJigAVIkJCgBVYoICQJVYDkrXdcUTAWBNakcsB6Xv++LJALAmtSOWgzIMg7sUAB6WmpHaEctBSUsHUm2EBYA1qRGpFfOYpC2CYmZm9rcTFDMze8LG8ROB/wSd2H4JZAAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Braintree Control Panel' /&gt;" SearchSteps="FuzzySelector, Image">
                         <uix:TargetAnchorable.Anchors>
@@ -150,8 +151,8 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
-                  <uix:NClick ClickType="Single" DisplayName="Click 'Merchant Statements'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Version="V1">
+                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,32" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                  <uix:NClick ClickType="Single" DisplayName="Click 'Merchant Statements'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Version="V1">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://www.braintreegateway.com/merchants/tygvr49zvypp3t6k/home" DesignTimeRectangle="958, 482, 138, 16" ElementType="Text" FriendlyName="'Merchant Statements'" FullSelectorArgument="&lt;webctrl aaname='Merchant Statements' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Merchant Statements' tag='SPAN' type='' check:text='Merchant Statements' /&gt;" Guid="0b630f35-5a79-4103-a3c6-e36998da5868" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAI4AAAAUCAYAAABbAAUtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALfSURBVGhD7Vg7bsMwDO15eoIeKWuu4TXXyOaDOGPRJUOmJFNOoEoWSfEjW7FaoCnABxBII5Hie3yWg74Fh6MDbhxHF9w4ji64cRxdcOM4uvBCxrmF4eMzvO8v4Q7fOF4XxTinc3hPg4uxGx/wZcF0yGsphhN8+at4EeNcL2EHPCkON1h0IKrGscODoUL8T+M8wnHfqA8aCH7XR7iniB/v41dc/wrHa15qAzi9tPGe0KUCY5zdPomjxFtb+zX8vXHyrbpsDDdOgTHOMMJVzchmQc/hOAunn0h5tfPXHAo9HHIerfHbbY5zmMg45zAkIrDGz8r1ylrOQ+CQYj7bk/NhjcXq67giIn9Vlz0gOv8edau88ojLBs3mmGtyDpx3huzv57rIevZhscaJBdEo8+FAMhXEwZEALGcG25tAg2aDQGFkI+l1gCTKmugj7plOt7hv/iNCPyk6H4da8ttPlhWSuEWY3mPP0ym/xmYo/mVo7MZ5VjPMoYcMeUBN4mF5Sd2266J5TmM03cg4RFSNwz/zIkgKSc8NikHIJozQq8PTgtTyJfK6EogNSeavna2wcCO0+qEzqAfb02bNsBddA3nDOje4NOd2Xdo8l4xDh10qpHAPHJj2mcikbAOWRAGsGQJcFNgjAutvF6gJfNqXhpqAe3jQGbqnDs3MLaaMUzsfIuf06KL6rMxrwTjYXA59jQrjrAzCCm3NUWDX5HmwTjeMrt8jUAuyJ8MHh6aNQWfonjo0e9I45eHS+KEuUJ+fn7BoHBLFDMru4U2n3yEII0KEqUGQQ0oQe82VDYSpfksgJXgNkY/oSw9N8TVcsEfiUBnKVs1axqmdkX57keYdusQe6Tyje8aycbAhc6AkjXkiIMeIgDA5aU/DOAkqL/97AOu3BSIRUq56gvgaD8GVzBoD+uQ3czprt2AUUWuLZk3jJLC+KHp1ueT9PDgfQDGOw7EBbhxHF9w4ji64cRwdCOEbvpkffmtAOXgAAAAASUVORK5CYII=" InformativeScreenshot="3b9e0da275daf1263cb3e2e852994bbc.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Welcome - Braintree Gateway' /&gt;" SearchSteps="FuzzySelector, Image">
                         <uix:TargetAnchorable.Anchors>
@@ -162,8 +163,8 @@
                       </uix:TargetAnchorable>
                     </uix:NClick.Target>
                   </uix:NClick>
-                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
-                  <uix:NClick ClickType="Single" DelayAfter="15" DisplayName="Click 'PDF' Download" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Version="V1">
+                  <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,32" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                  <uix:NClick ClickType="Single" DelayAfter="15" DisplayName="Click 'PDF' Download" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Version="V1">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://www.braintreegateway.com/merchants/tygvr49zvypp3t6k/statements" DesignTimeRectangle="100, 372, 27, 16" ElementType="Text" FriendlyName="'PDF'" FullSelectorArgument="&lt;webctrl aaname='PDF' href='/merchants/tygvr49zvypp3t6k/statement.json?date=05%2F2022&amp;amp;v2=tru*' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='PDF' href='/merchants/tygvr49zvypp3t6k/statement.json?date=*%2F2022&amp;amp;v2=tru*' tag='A' type='' check:text='PDF' /&gt;" Guid="f65f5ad3-41c8-4673-95c3-b38c20c3f346" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB8AAAAUCAYAAAB1aeb6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEJSURBVEhLzZYxCoMwFEB7n56gFxAEwXO4egtdewNBEHQRJ09Rx+KSwantVATX337zYzVGi1hjHwT8+T958hPQg2EYoAvGGARBAKZpAnq1ygVxHO8nxw7sJkf+Sf6ExL3C8SQNt4IHVUDBxnm5hnhk5WytWt7f6FaBgwvOdx6T3C94yLmDTxv357m8hORGExLf5V03GFwwVMoR8QJU90aj/NNmkVsvF2c823aCck72bMOpMxd5tVxeIMTIYvmqtkvMyH/fdplJ+SYXTkIpF+KhaDP5aPTvBbFQrpdOjl8ZnQy+alEU0bQe8jzncvyrsCwL0jSFuq4pvQ1N07Ri27a5PAzD9kH38DwPXq2mYYCzJN4bAAAAAElFTkSuQmCC" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Merchant Statements - Braintree Gateway' /&gt;" SearchSteps="FuzzySelector, Image">
                         <uix:TargetAnchorable.Anchors>
@@ -181,19 +182,19 @@
               <uix:TargetApp Area="1357, -640, 1938, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPESURBVHhe7ZpLaBRBEIajB/GBqLkoiG88BYO4SNjsTG/P7HR7EFQQ8XURRRDx4FkFEQKKBwXBgyKiIARBEA9e9CRERC+KeFejEsSIj0TQqNG/JzVJXIo1gZ3qEOaDn4Wkpqr6n97umdlpKSgoKCgoKCiYKHHV/mm2ImWG46r5HFXNq6hqn+Fvt7VKjsfK2EqlMp9KTw3qm89fZhDGXI1V3Ekt+IVvUkaYKXfK5XgpteIHrjFRKfslCpOt1I48bFPCwkwYgrZQS7JwDXmRsj/CsNZObcnBNuNJmAU9aGnGSGdC6JV6dr0iZa9zDTphBX/EHZOpXC7PgVrjznhFFJqqDpMjGNhdd4a5fPXCerCdWvNHuk0xzTnBnIcUNimUUstgxE0u53gh/y06xB95GJCBi6EzXN4xmUE3iyjcD3kaAGbChCdc7kxhGG+gWD/kbECLDs0+LncmrAObKdQPeRuglFnL5c6klT1AoX7IfQas1wu53JmmvQFK2VVc7kw6rG2jUD/kbQBW+h1c7lF1xmso1A+5G6DsPS53KmVeU5g/8jQAO8AhLm+mqGoPU6g/8jCgVCrNxZnvwtXgMJfXCbl729raZtEh/miWAXqjXuIeg2Hg53Fm+7h8mZwxWtV20qF+aWSAu6nBYN40Eha5/one/DilsyJMDlJ5/zQ0oNlS9lukkv1UemogYoCyv3Hmr3l/JsghY4B553aE9nY7j8pOHUS/AunvB8m5IEiWU3n/yBowItQcmDJrQUMD3OqO6dtI2An6sF1+dd9zNkcDYTacpTb80ciAyV4IdXTUFsMIpcPkKIy5j4VviMs7XlolJ+lwPzTTgHrSh6XKXOFyjwozRweJpkPkydOADB3aXajzk6vhhP89pVB5JAxwoM4xrkamKEw2UagsUga4Gx9M949cHSfsChcpVBYpAxzId4Ork0qZ5xQmi6QBmAFdXJ0RmX4Kk0XSAK3saa5OKlxzUJgsojOgarq5Ok6o1Uthskgugqj1iauTStnHFCqLlAEY4AmuxphMN4XKImFAHJjd/7ssxja4h8JlydOA9FIY+dPHYEz+cfou8kodvdDwjzDIhi9IcMfUq1RKFrinPVElanO/9LjpjkH34HNCd4jo4RK1mC9cce9S5n0QBIuoxXxhG/Ap96xQ8jUZtgl/+qVVbS+1JgPThBdhbfng5VdhrhlJud0gqtrLWDhbqSVZuKYkhEG/jEJzKgiS1dSKH7jmmiVM6wFczb3FYF/gTD/A5wX3fpBSyTqUln0hsqCgoKCgoGCa09LyF4/i4kw4dpP6AAAAAElFTkSuQmCC" InformativeScreenshot="1dd77ffa4f4a2b66a6dadf8e65c0d4b5.png" Selector="&lt;html app='chrome.exe' title='Braintree Control Panel'/&gt;" Url="https://www.braintreegateway.com/login" />
             </uix:NApplicationCard.TargetApp>
           </uix:NApplicationCard>
-          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: statement-022022.pdf" sap:VirtualizedContainerService.HintSize="434,561" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="63d5e9e5-119a-487f-936d-b1f2aab37fab" Version="V1">
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Close PDF application" sap:VirtualizedContainerService.HintSize="434,591" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="63d5e9e5-119a-487f-936d-b1f2aab37fab" Version="V1">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,272" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,292" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(alt)][k(f4)][u(alt)][u(hk)]" Version="V1" />
+                  <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,188" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" ScopeIdentifier="63d5e9e5-119a-487f-936d-b1f2aab37fab" Shortcuts="[d(hk)][d(alt)][k(f4)][u(alt)][u(hk)]" Version="V1" />
                 </Sequence>
               </ActivityAction>
             </uix:NApplicationCard.Body>
@@ -201,16 +202,21 @@
               <uix:TargetApp Area="-9, -9, 1938, 1048" FilePath="C:\Program Files\Adobe\Acrobat DC\Acrobat\acrobat.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAUJSURBVFhH5Zh/TFZVGMdBSyxTjPghFeW0cpq0LF1SEZUx0kLWgpptTocmIAjjh0grxtogGDCGMn4M3pZikRosm9WIaghhq/FD1GACawVCvCAMkHvvOZf3fb90zkXbet/zmuC92dYfnz/u7nOf57NzzznPuddlenraBYADNpvNMET1nCEWtFpdrUcqNqlLXE4zphjQgVFGvrWixM9msTjWdIJQ0FJ6aCNLZlaXe4C8FgJlbySUuN1zJ2qHjQT4U+rlJrO8JktRwTL7ms4QCrIk36o+d0LZHweppwvSlSuQJGnujI3ZpKYGVXkvZYouv0dl+Y9b3n/nhiSdCVK6fhWks63ignPFbIaSlgDVY75F9VxwypKR9o+SzgRBN20UF9EBJf5tUHdXC6tTbTmY522zWh0crnFLBDnK/n2g3nfwBfih1VSyki1MBw/OLROU+i+B7NkO6rWQz8mTbCR97D04+giOjUE+8QnIvl2Q674Sx9gzOQmp4wKUiFegurvybajA3oOjjyBb6SRiM8jLgSCvviCOEcEk5eNHoT68jAtK9h4cXQTl72pBt4VB/uwYVL+lUE5/L4wTcqkP9Nl12mZu78HRZwR/qAd9nY1g3C6o9y2GUv2pOM4JvJaxgmzC07CXQFf7gXcfeZb7p/GCDCXjANjmC7phNaTRUWGMM/4dQbavqR63gW4JEt6/HsYL9lwEDX6adYd5oA96QPmGbTWz6N/GCjIRudIEdYUXSOA6ELaaaTB7trEe0sVOSBfOQfrlPKS+XqfSxgr2/s6OU9uhLp0HEr8HSnoqVN9FIGxEyY43QHa/BRK5DQrrGnLNMUiXhx1yGCfIR++LatCHfLQCfBXTzc9pwiT0RdCV3iAxOyEfOwoa+ARo0JPCFW6M4Pl2KDvfBPVzh+q1AEpyrNa6tFc5ZIb0268g2Rmga5g0e/3U0w00JBAyj7HLpa/gyGUoB/NAVt0L8tSjWh8lEVtm5psonlPPOstPP0Ia/EN4Xz/B8XHIZUUzPTc/C+SZx0EfWwH5y5OOsbNAN0F5aAgkKRYkLBiEzSey5gHIR0yauH3sbNB1BKWvT4EkREFhohLf7yYmHONmiX6CHC7E5qE0OsKOSzf5MXUVfQUN4P8pWFFRgZycHFRWVqK7uxs1NTXadXl5OVpaWtDb2wuTyYTs7GwUFhaip6dHmIdjiGBISAgKCgqQlpaG/Px8REZGIikpCSUlJYiKikJVVRW2bt2qyR0+fFgTFuXhGCIYHByMhoYG1NbWIi4uDuHh4SgtLcXg4CBSU1ORmJiI0NBQ9PX1YYItrEn+kSTIwzFMMCsrCykpKcjLy9NGsKysDMPDw0hPT0dsbKwmGBQUhIiICPT39wvzcAwT5FLFxcXo6upCTEwMioqK0N7ejujoaGRmZmqCTU1N6OjoEOa4hmGCjY2Nf13Hx8drI5WcnIzc3FzU1dUhLCwMAwMDf3tOhCGCzc3NMJvZqeXqdWdnJ86cOYPW1lZNamRkBG1tbRi/gTY4N8HnN8x0DEFCXenpBg3wn7XgKH3EF/LHH0EaYJP7Zv8PiuA52blR/vwEVP65usRl3N6D40wwlp3zptS1y0H2RkIuLoRcUaIvpQehHEgACVgL9e75/C/Xu/YeHKGgpezQQtXL7QN6/5JhPvSG4nuXWfW8PZ/VdLf34AgF+b86a1vzIuu5s/7Wlp/XG0p721pWa/F1/w/+d5l2+ROBiPgPwy36dgAAAABJRU5ErkJggg==" Selector="&lt;wnd app='acrobat.exe' cls='AcrobatSDIWindow' title='statement-022022.pdf - Adobe Acrobat Reader DC (64-bit)'/&gt;" />
             </uix:NApplicationCard.TargetApp>
           </uix:NApplicationCard>
-          <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign sap2010:Annotation.AnnotationText="Selects first file by using VB expression" sap:VirtualizedContainerService.HintSize="434,101" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[SelectFirstFile]</OutArgument>
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">[New DirectoryInfo("C:\Users\maril\Downloads").GetFiles().OrderByDescending(Function(f) f.LastWriteTime).First().FullName]</InArgument>
             </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <ui:RenameFileX DisplayName="Rename File" FilePath="[SelectFirstFile]" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="RenameFileX_2" KeepExtension="True" NewName="BraintreeSummary" />
-          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;\Izvlecheniq\BraintreeSummary.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="C:\Users\maril\Downloads\BraintreeSummary.pdf" />
+          <ui:RenameFileX DisplayName="Renames Brainttree PDF" FilePath="[SelectFirstFile]" sap:VirtualizedContainerService.HintSize="434,151" sap2010:WorkflowViewState.IdRef="RenameFileX_2" KeepExtension="True" NewName="BraintreeSummary" />
+          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;\Izvlecheniq\BraintreeSummary.pdf&quot;]" DisplayName="Move from Downloads to Izvlecheniq" sap:VirtualizedContainerService.HintSize="434,167" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="C:\Users\maril\Downloads\BraintreeSummary.pdf" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -225,10 +231,11 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;'Braintree Workflow' Error. Please, check it out&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;'Braintree Workflow' Error. Please, check it out&quot;]" />
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="514,94" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Braintree process is finished&quot;]" />
   </Sequence>
 </Activity>

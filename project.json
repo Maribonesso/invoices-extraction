@@ -4,6 +4,7 @@
   "main": "Main.xaml",
   "dependencies": {
     "DateOperationsEntireMonth": "[1.0.3]",
+    "KanadCharting.Activities": "[1.0.0]",
     "Microsoft.Office365.OutlookServices-V2.0": "[2.0.1.2]",
     "UiPath.Excel.Activities": "[2.11.4]",
     "UiPath.Mail.Activities": "[1.15.0-preview]",
@@ -20,6 +21,7 @@
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
     "isPausable": true,
+    "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
     "excludedLoggedData": [
@@ -28,7 +30,8 @@
     ],
     "executionType": "Workflow",
     "readyForPiP": false,
-    "startsInPiP": false
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -61,5 +64,6 @@
     "defaultProjectDescription": "Blank Process",
     "defaultProjectName": "YonderSpaceInvoicesTemplate"
   },
-  "publishData": {}
+  "publishData": {},
+  "targetFramework": "Legacy"
 }

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DeletePaypalMessage" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1152,1435" sap2010:WorkflowViewState.IdRef="DeletePaypalMessage_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DeletePaypalMessage" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1030,1591" sap2010:WorkflowViewState.IdRef="DeletePaypalMessage_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -68,25 +68,28 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DeletePaypalMessage" sap:VirtualizedContainerService.HintSize="476,1270" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow:&#xD;&#xA;1- Deletes PayPal SMS message from Google Messages for Web" DisplayName="DeletePaypalMessage" sap:VirtualizedContainerService.HintSize="476,1526" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Messages for web" sap:VirtualizedContainerService.HintSize="434,1178" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="f3c6d3f3-0d0f-487e-a282-7455af747e4c" Version="V1" WindowResize="Maximize">
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,94" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Deleting Paypal SMS Message&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Messages for web" sap:VirtualizedContainerService.HintSize="434,1248" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="f3c6d3f3-0d0f-487e-a282-7455af747e4c" Version="V1" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,962" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1022" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NClick ClickType="Single" DelayAfter="5" DisplayName="Delete Message on Google Message" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3c6d3f3-0d0f-487e-a282-7455af747e4c" Version="V1">
+            <uix:NClick ClickType="Single" DelayAfter="5" DisplayName="Delete Message on Google Message" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3c6d3f3-0d0f-487e-a282-7455af747e4c" Version="V1">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://messages.google.com/web/conversations?redirected=true" DesignTimeRectangle="88, 244, 43, 18" ElementType="Text" FriendlyName="'PayPal'" FullSelectorArgument="&lt;webctrl aaname='PayPal' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='PayPal' tag='SPAN' type='' check:text='PayPal' /&gt;" Guid="5683fb32-be07-4515-afc0-09fc8a9ff65d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC8AAAAWCAYAAABQUsXJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIxSURBVFhH7ZWxa9tAGMX7p9hg8CDo4F3QodBB4MHgJdDB4CEkg3GglEIJgiK0GA0JHQwp1DhQ4SxGEIKXZjDyYuwh2EOpBxMPBg+GGwIaBK/fWaojqRBHPrkhkB8IfL67x9Pd+z69wjPmxfxT8WL+qQiYX+DqUx5K/v7Z/3yG9pj586KI6w/qeXy8XPijiHmzlIHyxYLd7dFzDdOoQpEklC5m/hoRxPUHeobWPmA+OMlxrlVkJR0D1/9ja8T1Y5vHvIVSugxzTr/dBex6FXv+te8dncH2lzu/LJwaHfyOmGD9JmrfeqQups+Jbf72ooys/BUj14Gt55AtGmjfzMCmQzQow1lZh31HC90xTmUJx13H27hihkYhg8I5j4WgPrHRvFxWUTOM1aMdFfE6/Q5a3zfETzV0shM08hlULr2iuz0vInVoYV2CkyZluoqrJR+I68cyX6u3MODX+Ze7Cdr6wbpb8GvVDgOCyw4qUhGNqTccnbyBfDL2Bgnox8/8Gm/+7YcWRnMGtmRYTDrQlPCetWGnh+PAiyShv735VWG9hxnqat61hvZMmyhIKswfB+EIJaC/vXl3CI16csXy512G0XcqtnR0D0ObrjqVjhavuL5AbCgJfYMKkIzlclRoEhRjiJ8RwRVdFalCM9I2xfUfMP9IqKXxPDK/ff2Ld/L71uM/+yE26t8T3/wmqD3yzNvBxOyIhM3Th0aVAu1xtyR+8g5duRPK+u5IPjb/kWdsHvgDZEHGTsqueGMAAAAASUVORK5CYII=" InformativeScreenshot="21d77019ef5005669e0058a3f8d24856.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Messages for web' /&gt;" SearchSteps="FuzzySelector, Image">
                   <uix:TargetAnchorable.Anchors>
@@ -97,7 +100,7 @@
                 </uix:TargetAnchorable>
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NClick ClickType="Single" DisplayName="Click 'PATH'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3c6d3f3-0d0f-487e-a282-7455af747e4c" Version="V1">
+            <uix:NClick ClickType="Single" DisplayName="Click 'PATH'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3c6d3f3-0d0f-487e-a282-7455af747e4c" Version="V1">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://messages.google.com/web/conversations/200?redirected=true" DesignTimeRectangle="1874, 136, 4, 16" ElementType="Icon" FriendlyName="'PATH'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;mw-app&amp;gt;mw-bootstrap&amp;gt;div&amp;gt;main&amp;gt;mw-main-container&amp;gt;div&amp;gt;mw-conversation-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;mw-conversation-header&amp;gt;mws-header&amp;gt;div&amp;gt;mw-conversation-menu&amp;gt;button&amp;gt;span&amp;gt;mws-icon&amp;gt;svg&amp;gt;path' tag='path' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='path' aaname='' /&gt;" Guid="35acaa69-0727-4a09-ae44-a10b54e1e2b8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAAgAAAAUCAYAAACwG3xrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABDSURBVChTY/hPABCv4PqNm/8zcwvBGMSGAbiCjJzC//HJGWAMUgQDWBWA2DCAYgVIAoSxWoELEK9g1BcQMGC++P8fAHRyORESw/YFAAAAAElFTkSuQmCC" InformativeScreenshot="00bceef0a91d5c8bd1cf1758012e37ff.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Messages for web' /&gt;" SearchSteps="FuzzySelector, Image">
                   <uix:TargetAnchorable.Anchors>
@@ -108,7 +111,7 @@
                 </uix:TargetAnchorable>
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NClick ClickType="Single" DisplayName="Click 'Delete'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3c6d3f3-0d0f-487e-a282-7455af747e4c" Version="V1">
+            <uix:NClick ClickType="Single" DisplayName="Click 'Delete'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3c6d3f3-0d0f-487e-a282-7455af747e4c" Version="V1">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://messages.google.com/web/conversations/200?redirected=true" DesignTimeRectangle="1756, 268, 140, 48" ElementType="Button" FriendlyName="'Delete'" FullSelectorArgument="&lt;webctrl aaname=' Delete ' aria-role='menuitem' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Delete ' aria-role='menuitem' tag='BUTTON' type='' check:text='Delete' /&gt;" Guid="73936866-5418-42de-b9b2-6a29460321d0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJAAAAA0CAYAAABly7FAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALsSURBVHhe7djfS1NxGMfx/pQCI6GLgq4KurUfElmWFaZ1VRaUywgqu6nMbKySKJMoMSrsBxjYdWWQYPfGmK67DY2py6nbXG6f9nzbkeNhbpyecCs+LzhsnPNsuzhvzvmerQmHwwgEAiByQ5qRdhgQ/REGRCoMiFQYEKkwIFJhQKTCgEiFAZEKAyIVBkQqDIhUGBCpMCBSYUCkwoBIhQGRCgMiFQZEKv9kQK9ev0Fz8znE4/HcHiqVVQ9oenoaNftqsXZdhdk2bd6Ci5daEQqFchPFuQloePiL+T35Xfr7ShaQnNhMJoOpqSk8e/4Cu6v3IDA6mpsqjAGVj5IGZJGQuh5243LrFSwsLJh98/Pz6Oy8Z65Qsj1+0rN0zBnQ5OSk+eyGyo3Yum07BgbeIZ1Oo+OWd+lKJ5v1myvNk3tlEZAYGfmKg3WHMT4+gZ+Li/B6ffD57iCRSGBi4juamk6bcIQ9IAlN3vf1vUQqlUIw+A11h47g89CQmXVegYrNkztlE9DYWBB7a/abV9nq6xtNTJb3Hz6i5fwFJJPJZQHJ95w4eQpzc3O5SaCnpxe+23fNe2dAxebJnbIMSI7Zbz3WZkVjD0je55uV25dwBlRsntwpm4DstzA5drThGGZmZnJHl3MGJE9xcjvKJ19AhebJnbIIyLmI9vv92LGz2rxaZJErc8Ie0ODgJ3PlknWSxT7rDKjYPLlT0oDkpMlj/P0HXaiq2rX0GC8RSUxnznoQiUTMQrq39ym6ux9hMbvAtgcUjf5AQ+Nx3GjvyC6Q44jFYmi/2WGerIR8Z+2BOnNrlPVTsXlyp2QBWWuPlf5InJ2dNSdZjsvj9tVr17OfjZpj9oCEXE08nhYzJ/NyNZPohMy0tbWjYn0l+vvfmn2F5smdVQ+I/i8MiFQYEKkwIFJhQKTCgEiFAZEKAyIVBkQqDIhUGBCpMCBSYUCkwoBIhQGRCgMiFQZEKgyIVBgQqTAgUmFApMKASOV3QGH8AvrDFsDwZr/uAAAAAElFTkSuQmCC" InformativeScreenshot="caaebb522c3d0d2104d622436b7b49bb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Messages for web' /&gt;" SearchSteps="FuzzySelector, Image">
                   <uix:TargetAnchorable.Anchors>
@@ -119,7 +122,7 @@
                 </uix:TargetAnchorable>
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NClick ClickType="Single" DisplayName="Click 'Delete'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3c6d3f3-0d0f-487e-a282-7455af747e4c" Version="V1">
+            <uix:NClick ClickType="Single" DisplayName="Click 'Delete'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f3c6d3f3-0d0f-487e-a282-7455af747e4c" Version="V1">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://messages.google.com/web/conversations/200?redirected=true" DesignTimeRectangle="1099, 631, 43, 18" ElementType="Text" FriendlyName="'Delete'" FullSelectorArgument="&lt;webctrl aaname=' Delete ' parentid='mat-mdc-dialog-0' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Delete ' parentid='mat-mdc-dialog-0' tag='SPAN' type='' check:text='Delete' /&gt;" Guid="ef7d9685-bade-4de9-b814-76a99da193c1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC8AAAAWCAYAAABQUsXJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMISURBVFhH7VVtS1NhGO5fRERE9CGMqCgwECroQ9CHXsRePlSSadmLVBBCFJVERLgKo6AiKIswp8zmcmYrV5bbdDJfNpna3Itz6nJLS63UBnfneuI5nu2cmevLKvbhgnOe53ru+zrXfd/PmRcYjdC/ipT4ZCElPln4P8TbfRO0Lv85zd9WJmJF9jO68LCDPgxNyg7Gg7EjTMv2aqjyXUBxPxb9IxFyBr5Rz+B3xf3ZIBN/5EYTlRn9VGrw0SGVhRbvVNOGglqyucdlh5WQqHhXcJKyzr+h4yXNivuzQSb+WkVXFKG+PcQqkH/dQn3hH+K6JzRNemuQqi2DUa4piYe7NvcYqRv6ydz9mfwjv+L4wtNkdX2hrWfqKbfYzDQgLj+HuIiPPNJ1jt+KBy4/6aSVB7QsMd5rmoO0Kkcrtheqc1vrYiJjxfd+nKKCm1ZasOOpyN9S+IravRMil68DOIc4D+q8tHRPpbgOnub9QJSuOYlHQCSvMg1Qq2ec1gttdPJWC3mGp5iLKnUXpe2vYmJixSMeKveydZi9w2m0Ic67hQ9Tch4xEA9xER95wEde5Oe65ix+UZaadE1DbBaW7K5gPMwGcEfXS8uFZCWanijx3ULZ4XLmOaPIBfJUZso4pieH/6tizxc9srMPvlfjFs8UlztZXhjIeQm3DfYXZpbT2jwdpQt8KfARUvE8Zto+jYy7/ayROuOIxzNaMf1w9BkABnJewgML5/He6BwVOSgtWgDPSs4X3rWxPuZ8cPnQxnN+44kXrDJ8DcPtjRlamXh+Vd6vdVPOVRNzYNOpOvGqhFt433zawIRi8C49djB3DUJfS8WDj2qg3OhfcF+3hVjLQCzEYKB3XXzL1pAX502CMbgQsq80smojN3RlHNVTi2ssvnjp5K/JrVb8STU4PjFnOA+3Am4HpdsGjhWV2pkJnA+x9r4ZV9HHmBns8cpjbfXBmRsNH4Nbjp8BRPGJAkLxZ0RpIVCJIwVuERgU70+KNoo1CWuoNMDbTIo/Fv83ICU+WUiJTw4i9BNcmVKqV3XaNAAAAABJRU5ErkJggg==" InformativeScreenshot="3de66fac6c1a9e2c66e93fc393d73b7e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Messages for web' /&gt;" SearchSteps="FuzzySelector, Image">
                   <uix:TargetAnchorable.Anchors>
@@ -130,7 +133,7 @@
                 </uix:TargetAnchorable>
               </uix:NClick.Target>
             </uix:NClick>
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Paypal messages have been deleted&quot;]" />
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,94" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Paypal message has been deleted&quot;]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
