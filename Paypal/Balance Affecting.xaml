@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Balance_Affecting" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1030,5893" sap2010:WorkflowViewState.IdRef="Balance_Affecting_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Balance_Affecting" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="923,5867" sap2010:WorkflowViewState.IdRef="Balance_Affecting_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:sd1="clr-namespace:System.Diagnostics;assembly=System" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="66">
       <x:String>System.Activities</x:String>
@@ -40,6 +40,9 @@
       <x:String>UiPath.CV.Activities</x:String>
       <x:String>UiPath.CV.Activities.Interfaces</x:String>
       <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -81,17 +84,18 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>System.Configuration.Install</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;1- Logs into Paypal&#xA;2- Clicks activity download&#xA;3- Clicks balance affecting&#xA;4- Chooses month (&quot;Last month&quot;)&#xA;5- Choses file format (PDF)&#xA;6- Downloads File&#xA;7- Renames file&#xA;8- Moves it to the destination folder" DisplayName="Balance_Affecting" sap:VirtualizedContainerService.HintSize="570,5828" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;1- Logs into Paypal&#xA;2- Clicks activity download&#xA;3- Clicks balance affecting&#xA;4- Chooses month (&quot;Last month&quot;)&#xA;5- Choses file format (PDF)&#xA;6- Downloads File&#xA;7- Renames file&#xA;8- Moves it to the destination folder" DisplayName="Balance_Affecting" sap:VirtualizedContainerService.HintSize="570,5802" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="FirstDayOfLastMonth" />
       <Variable x:TypeArguments="s:DateTime" Name="LastDayOfLastMonth" />
-      <Variable x:TypeArguments="x:String" Name="variable1" />
       <Variable x:TypeArguments="x:String" Name="FolderBalanceAffecting" />
       <Variable x:TypeArguments="x:String" Name="BalanceAffecting" />
       <Variable x:TypeArguments="x:String" Name="SelectFirstFile" />
       <Variable x:TypeArguments="ui:UiElement" Name="FoundElement" />
+      <Variable x:TypeArguments="sd1:Process" Default="[New System.Diagnostics.Process()]" Name="KillProcess" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -103,10 +107,11 @@
     <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="528,32" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke StartingPaypal workflow" sap:VirtualizedContainerService.HintSize="528,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Paypal\StartingPaypal.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+        <OutArgument x:TypeArguments="x:String" x:Key="PaypalUser" />
+        <OutArgument x:TypeArguments="x:String" x:Key="PaypalPass" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <uix:NApplicationCard AttachMode="SingleWindow" DisplayName="Use Browser Chrome: Reports Home - PayPal" sap:VirtualizedContainerService.HintSize="528,3540" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="51150d28-81a9-4b9a-bef0-911a44d9a74d" Version="V1" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Reports Home - PayPal" sap:VirtualizedContainerService.HintSize="528,3540" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="51150d28-81a9-4b9a-bef0-911a44d9a74d" Version="V1" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -346,7 +351,21 @@
     <ui:RenameFileX DisplayName="Rename File" FilePath="[SelectFirstFile]" sap:VirtualizedContainerService.HintSize="528,151" sap2010:WorkflowViewState.IdRef="RenameFileX_2" KeepExtension="True" NewName="PaypalActivities" />
     <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="528,32" sap2010:WorkflowViewState.IdRef="Delay_2" />
     <ui:MoveFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;\Izvlecheniq\PaypalActivities.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="528,167" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="C:\Users\maril\Downloads\PaypalActivities.pdf" />
-    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="All" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="528,142" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Chrome" />
+    <ui:CloseApplication ContinueOnError="True" DisplayName="Close Application 'INPUT  ci-otpCode-0'" sap:VirtualizedContainerService.HintSize="528,116" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+      <ui:CloseApplication.Target>
+        <ui:Target Element="{x:Null}" Id="b7a56067-5591-49f0-bc24-727ea4710206" InformativeScreenshot="10fda0790998386cd03000da53ca9459" Selector="&lt;html app='chrome.exe' omit:title='A Simple and Safer Way to Pay and Get Paid | PayPal BG' /&gt;&lt;webctrl aaname='PayPal' tag='A' /&gt;">
+          <ui:Target.ClippingRegion>
+            <ui:Region Rectangle="0, 0, 0, 0" />
+          </ui:Target.ClippingRegion>
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:CloseApplication.Target>
+    </ui:CloseApplication>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="528,94" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Balance Affecting file has been downloaded&quot;]" />
   </Sequence>
 </Activity>
