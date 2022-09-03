@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Statements" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1030,5141" sap2010:WorkflowViewState.IdRef="Statements_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Statements" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="923,5115" sap2010:WorkflowViewState.IdRef="Statements_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="39">
       <x:String>System.Activities</x:String>
@@ -80,10 +80,9 @@
       <AssemblyReference>UiPath.CV</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;1- Logs into Paypal (if not logged already)&#xA;2- Clicks Statements &#xA;3- Clicks Custom&#xA;4- Clicks &quot;current moment&quot; and enters initial and final dates&#xA;5- Choses file format (PDF)&#xA;6- Clicks Create Refresh&#xD;&#xA;7- Clicks Download&#xD;&#xA;8- Closes PDF &#xA;9- Renames file&#xA;10- Moves it to the destination folder" DisplayName="Statements" sap:VirtualizedContainerService.HintSize="476,5076" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;1- Logs into Paypal (if not logged already)&#xA;2- Clicks Statements &#xA;3- Clicks Custom&#xA;4- Clicks &quot;current moment&quot; and enters initial and final dates&#xA;5- Choses file format (PDF)&#xA;6- Clicks Create Refresh&#xA;7- Clicks Download&#xA;8- Closes PDF &#xA;9- Renames file&#xA;10- Moves it to the destination folder" DisplayName="Statements" sap:VirtualizedContainerService.HintSize="476,5050" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="FirstDayOfLastMonth" />
       <Variable x:TypeArguments="s:DateTime" Name="LastDayOfLastMonth" />
@@ -103,7 +102,7 @@
         <OutArgument x:TypeArguments="x:String" x:Key="PaypalPass" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Reports Home - PayPal" sap:VirtualizedContainerService.HintSize="434,2902" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="51150d28-81a9-4b9a-bef0-911a44d9a74d" Version="V1">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Reports Home - PayPal" sap:VirtualizedContainerService.HintSize="434,2902" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="51150d28-81a9-4b9a-bef0-911a44d9a74d" Version="V1">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -284,7 +283,18 @@
     </Assign>
     <ui:RenameFileX DisplayName="Rename File" FilePath="[SelectFirstFile]" sap:VirtualizedContainerService.HintSize="434,151" sap2010:WorkflowViewState.IdRef="RenameFileX_1" KeepExtension="True" NewName="PaypalStatement" />
     <ui:MoveFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;\Izvlecheniq\PaypalStatement.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,167" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="C:\Users\maril\Downloads\PaypalStatement.pdf" />
-    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="All" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="434,142" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Chrome" />
+    <ui:CloseApplication DisplayName="Close Application 'DIV'" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+      <ui:CloseApplication.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3b8ea7dd-59ff-441d-aafc-ffe970c0eef3" InformativeScreenshot="10fda0790998386cd03000da53ca9459" Selector="&lt;html app='chrome.exe' omit:title='A Simple and Safer Way to Pay and Get Paid | PayPal BG' /&gt;&lt;webctrl aaname='PayPal' tag='A' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:CloseApplication.Target>
+    </ui:CloseApplication>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,94" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Statements project is completed&quot;]" />
   </Sequence>
 </Activity>

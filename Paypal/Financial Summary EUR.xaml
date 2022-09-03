@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Financial_Sumary_EUR" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1030,5424" sap2010:WorkflowViewState.IdRef="Financial_Sumary_EUR_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Financial_Sumary_EUR" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="923,5398" sap2010:WorkflowViewState.IdRef="Financial_Sumary_EUR_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="43">
       <x:String>System.Activities</x:String>
@@ -88,7 +88,7 @@
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;&#xA;1- Logs into Paypal (if not logged already)&#xA;2- Clicks Financial Summaries &#xA;3- Clicks Financial Summary&#xA;4- Clicks &quot;* (month to date)&quot; and enters initial and final dates&#xA;5- Chooses Currency (EUR)&#xA;6- Clicks Create Refresh&#xA;7- Chooses PDF format and Clicks Download&#xA;8- Closes PDF &#xA;9- Renames file&#xA;10- Moves it to the destination folder" DisplayName="Financial_Summary_EUR" sap:VirtualizedContainerService.HintSize="476,5359" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;&#xA;1- Logs into Paypal (if not logged already)&#xA;2- Clicks Financial Summaries &#xA;3- Clicks Financial Summary&#xA;4- Clicks &quot;* (month to date)&quot; and enters initial and final dates&#xA;5- Chooses Currency (EUR)&#xA;6- Clicks Create Refresh&#xA;7- Chooses PDF format and Clicks Download&#xA;8- Closes PDF &#xA;9- Renames file&#xA;10- Moves it to the destination folder" DisplayName="Financial_Summary_EUR" sap:VirtualizedContainerService.HintSize="476,5333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="SelectFirstFile" />
       <Variable x:TypeArguments="s:DateTime" Name="FirstDayOfLastMonth" />
@@ -294,7 +294,18 @@
     <ui:RenameFileX DisplayName="Rename File" FilePath="[SelectFirstFile]" sap:VirtualizedContainerService.HintSize="434,151" sap2010:WorkflowViewState.IdRef="RenameFileX_6" KeepExtension="True" NewName="PaypalFinancialSummaryEUR" />
     <Delay Duration="00:00:07" sap:VirtualizedContainerService.HintSize="434,32" sap2010:WorkflowViewState.IdRef="Delay_3" />
     <ui:MoveFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;\Izvlecheniq\PaypalFinancialSummaryEUR.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,167" sap2010:WorkflowViewState.IdRef="MoveFile_6" Overwrite="True" Path="C:\Users\maril\Downloads\PaypalFinancialSummaryEUR.pdf" />
-    <ui:KillProcess ContinueOnError="{x:Null}" Process="{x:Null}" AppliesTo="All" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="434,142" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Chrome" />
+    <ui:CloseApplication DisplayName="Close Application 'SECTION  panel-one'" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+      <ui:CloseApplication.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec96dee1-79af-4181-ba3d-774e55341136" InformativeScreenshot="c33809e6841f19f7351c9cd276fa4e1f" Selector="&lt;html app='chrome.exe' omit:title='A Simple and Safer Way to Pay and Get Paid | PayPal BG' /&gt;&lt;webctrl aaname='PayPal' tag='A' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:CloseApplication.Target>
+    </ui:CloseApplication>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,94" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Process 'Financial Summary EUR' Finished&quot;]" />
   </Sequence>
 </Activity>
