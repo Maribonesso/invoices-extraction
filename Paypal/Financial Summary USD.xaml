@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Financial_Summary_USD" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="923,5532" sap2010:WorkflowViewState.IdRef="Financial_Summary_USD_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Financial_Summary_USD" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="972,5432" sap2010:WorkflowViewState.IdRef="Financial_Summary_USD_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth_Windows;assembly=DateOperationsEntireMonth_Windows" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -36,10 +36,13 @@
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>DateOperationsEntireMonth_Windows</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -74,9 +77,11 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-    </sco:Collection>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>DateOperationsEntireMonth_Windows</AssemblyReference>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;&#xA;1- Logs into Paypal (if not logged already)&#xA;2- Clicks Financial Summaries &#xA;3- Clicks Financial Summary&#xA;4- Clicks &quot;* (month to date)&quot; and enters initial and final dates&#xA;5- Chooses Currency (USD)&#xA;6- Clicks Create Refresh&#xA;7- Chooses PDF format and Clicks Download&#xA;8- Closes PDF &#xA;9- Renames file&#xA;10- Moves it to the destination folder" DisplayName="Financial_Summary_USD" sap:VirtualizedContainerService.HintSize="476,5467" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;&#xA;1- Logs into Paypal (if not logged already)&#xA;2- Clicks Financial Summaries &#xA;3- Clicks Financial Summary&#xA;4- Clicks &quot;* (month to date)&quot; and enters initial and final dates&#xA;5- Chooses Currency (USD)&#xA;6- Clicks Create Refresh&#xA;7- Chooses PDF format and Clicks Download&#xA;8- Closes PDF &#xA;9- Renames file&#xA;10- Moves it to the destination folder" DisplayName="Financial_Summary_USD" sap:VirtualizedContainerService.HintSize="476,5367" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="SelectFirstFile" />
       <Variable x:TypeArguments="s:DateTime" Name="FirstDayOfLastMonth" />
@@ -89,26 +94,26 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,94" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Starting Financial Summary USD process&quot;]" />
-    <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="434,32" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
+    <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke StartingPaypal workflow" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Paypal\StartingPaypal.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="x:String" x:Key="PaypalUser" />
         <OutArgument x:TypeArguments="x:String" x:Key="PaypalPass" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Reports Home - PayPal" sap:VirtualizedContainerService.HintSize="434,3026" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="51150d28-81a9-4b9a-bef0-911a44d9a74d" Version="V1" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Reports Home - PayPal" sap:VirtualizedContainerService.HintSize="434,3014" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="51150d28-81a9-4b9a-bef0-911a44d9a74d" Version="V1" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,2800" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,2788" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NClick ClickType="Single" DisplayName="Click 'Financial summaries'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="51150d28-81a9-4b9a-bef0-911a44d9a74d" Version="V1">
+            <uix:NClick ClickType="Single" DisplayName="Click 'Financial summaries'" sap:VirtualizedContainerService.HintSize="358,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="51150d28-81a9-4b9a-bef0-911a44d9a74d" Version="V1">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://business.paypal.com/merchantdata/reportHome" DesignTimeRectangle="113, 558, 148, 17" ElementType="Text" FriendlyName="'Financial summaries'" FullSelectorArgument="&lt;webctrl id='leftnav.financialSummary' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='leftnav.financialSummary' tag='A' type='' aaname='Financial summaries' check:text='Financial summaries' /&gt;" Guid="c267597d-2da7-4b71-b284-ee22cf18a46d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJgAAAAVCAYAAAC67CcnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKOSURBVGhD7VZBcsIwDOyDe+ulD+DCpR/gBp9gOPAGZuAPDK9wcWLJ8kpOQhpnOq12RocEW1qt1g5vweFoCDeYoyncYI6mcIM5msIN5mgKNtj99BXePz4rcQiXuOhxDpv4vD2He7frF2EGt8u+7293TS/+LW5hJ+e8INxgzz1usBUNtjk90pu/DzdYe7xmMLwl5PP10O3v4yscZRpaJ0LWyYN+hONWrNvf0ooEzCNvK+sGm1w3vbBQ9BVD9madfOqB1uWedifJJ+2R+UW/xG3z3NPXiJFyyr7wxlZ8y/64Z8Fld7VvMPyqoU6UiwO5PDHpE8mJcYjGADm4GJHHyINSREWo2hjIZUbdqsGMYfVBg3jNYFOCuAxpgsGHpjqPzE/njTx1HzU/jPKDS2Exg/EaHkp5GjLEiUaybI68hsTjNdwADFIZDFGvy9wR1AvepIwXDUZ5hHGRi+rX0JrW8MxG+elDVeqEfeh9qO+odgnLfCILgS3RI4TQKWriRpR8cGgGqgYbr1sXiXoRUQzT6rVuMK5j6Ib6a02MoVcPAPLWBivnDH0wPyvSGuN2t3Rc7j9YtyACRcdnLbg16J8bbF5dG7WB0XvJC98NGEzoNt1g1M8TaLCqBtpgZc+Qm/KYIepHoNEKL6xgMMqbTxn9PjzomuA5DwwOuMytO4Zy8DpnFnx9g6k9bJQXDcbP8uCMwd7T/gYzrlKKoUErPiwWRqqDXGbWlWCTqtDmmbKG6xi6LWGwcb5TDTaQq6s10HfhhVU+kbmpLiLByskbNFiEMpkQ2+Ayp66CYVR7OH1sTrck/voGk7Voby3vmMEilMm4To9C3y7K/RFsMIejBdxgjqZwgzmawg3maAo3mKMhQvgGFnqgX71RkFsAAAAASUVORK5CYII=" InformativeScreenshot="adb8dca8a5cf0217fe9bc9eea16d3df4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Reports Home - PayPal' /&gt;" SearchSteps="FuzzySelector, Image">
                   <uix:TargetAnchorable.Anchors>
@@ -282,7 +287,7 @@
     <Delay Duration="00:00:07" sap:VirtualizedContainerService.HintSize="434,32" sap2010:WorkflowViewState.IdRef="Delay_5" />
     <ui:RenameFileX DisplayName="Rename File" FilePath="[SelectFirstFile]" sap:VirtualizedContainerService.HintSize="434,151" sap2010:WorkflowViewState.IdRef="RenameFileX_1" KeepExtension="True" NewName="PaypalFinancialSummaryUSD" />
     <Delay Duration="00:00:07" sap:VirtualizedContainerService.HintSize="434,32" sap2010:WorkflowViewState.IdRef="Delay_6" />
-    <ui:MoveFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;\Izvlecheniq\PaypalFinancialSummaryUSD.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,167" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="C:\Users\maril\Downloads\PaypalFinancialSummaryUSD.pdf" />
+    <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;\Izvlecheniq\PaypalFinancialSummaryUSD.pdf&quot;]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,167" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="C:\Users\maril\Downloads\PaypalFinancialSummaryUSD.pdf" />
     <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="434,32" sap2010:WorkflowViewState.IdRef="Delay_7" />
     <ui:CloseApplication DisplayName="Close Application 'DIV'" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
       <ui:CloseApplication.Target>

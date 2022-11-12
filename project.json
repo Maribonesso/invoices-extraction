@@ -1,22 +1,21 @@
 {
-  "name": "YonderSpaceInvoicesTemplate",
+  "name": "YonderSpaceInvoicesTemplate_Windows",
   "description": "Downloads Paypal, Braintree and Bank invoices",
   "main": "Main.xaml",
   "dependencies": {
-    "DateOperationsEntireMonth": "[1.0.3]",
-    "KanadCharting.Activities": "[1.0.0]",
-    "Microsoft.Office365.OutlookServices-V2.0": "[2.0.1.2]",
+    "DateOperationsEntireMonth_Windows": "[1.0.5]",
+    "MailKit": "[3.4.2]",
     "UiPath.Excel.Activities": "[2.11.4]",
-    "UiPath.Mail.Activities": "[1.15.0-preview]",
-    "UiPath.System.Activities": "[21.10.4]",
+    "UiPath.Mail.Activities": "[1.15.2]",
+    "UiPath.System.Activities": "[22.10.1]",
     "UiPath.UIAutomation.Activities": "[21.10.5]",
-    "UiPathTeam.TwoStepAuthentication.Activities": "[1.1.7382.28686]"
+    "UiPathTeam.TwoStepAuthentication.Activities": "[2.0.1]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.10.4.0",
-  "projectVersion": "1.0.5",
+  "projectVersion": "1.0.7",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -31,7 +30,8 @@
     "executionType": "Workflow",
     "readyForPiP": false,
     "startsInPiP": false,
-    "mustRestoreAllDependencies": false
+    "mustRestoreAllDependencies": false,
+    "pipType": "ChildSession"
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -65,5 +65,5 @@
     "defaultProjectName": "YonderSpaceInvoicesTemplate"
   },
   "publishData": {},
-  "targetFramework": "Legacy"
+  "targetFramework": "Windows"
 }

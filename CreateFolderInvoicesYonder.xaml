@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="FolderInvoicesYonder" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1030,1400" sap2010:WorkflowViewState.IdRef="FolderInvoicesYonder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="FolderInvoicesYonder" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="972,1432" sap2010:WorkflowViewState.IdRef="FolderInvoicesYonder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth_Windows;assembly=DateOperationsEntireMonth_Windows" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="29">
+    <scg:List x:TypeArguments="x:String" Capacity="58">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -30,10 +30,13 @@
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>DateOperationsEntireMonth</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>DateOperationsEntireMonth_Windows</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="58">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -64,10 +67,11 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>DateOperationsEntireMonth</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>DateOperationsEntireMonth_Windows</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Creates all folders that need to be sent monthly to the accountant.&#xA;&#xA;" DisplayName="Monthly Invoices Yonder 2022" sap:VirtualizedContainerService.HintSize="376,1335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Creates all folders that need to be sent monthly to the accountant.&#xA;&#xA;" DisplayName="Monthly Invoices Yonder 2022" sap:VirtualizedContainerService.HintSize="400,1367" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="InitFolderName" />
       <Variable x:TypeArguments="s:DateTime" Name="FirstDayOfLastMonth" />
@@ -79,20 +83,20 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,94" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Folders will be created&quot;]" />
-    <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="334,32" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
-    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder: YonderSpace2022" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022" />
-    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Subfolder: Month" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_6" Path="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;)]" />
-    <ui:CreateDirectory ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Save here:&#xA;1- PaypalActivities&#xA;2- Statements&#xA;3- Financial Summary EUR&#xA;4- Financial Summary USD" DisplayName="Create Subfolder: Izvlecheniq " sap:VirtualizedContainerService.HintSize="334,176" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyy&quot;+&quot;MM&quot;) + &quot;\Izvlecheniq&quot;]">
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="358,94" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Folders will be created&quot;]" />
+    <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="358,148" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder: YonderSpace2022" sap:VirtualizedContainerService.HintSize="358,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Subfolder: Month" sap:VirtualizedContainerService.HintSize="358,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_6" Path="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;)]" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" sap2010:Annotation.AnnotationText="Save here:&#xA;1- PaypalActivities&#xA;2- Statements&#xA;3- Financial Summary EUR&#xA;4- Financial Summary USD" DisplayName="Create Subfolder: Izvlecheniq " sap:VirtualizedContainerService.HintSize="358,176" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyy&quot;+&quot;MM&quot;) + &quot;\Izvlecheniq&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CreateDirectory>
-    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Subfolder Braintree" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_7" Path="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyy&quot;+&quot;MM&quot;) + &quot;\MinedCrypto\&quot;]" />
-    <ui:CreateDirectory ContinueOnError="False" DisplayName="Create Subfolder DSK" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_8" Path="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) + &quot;\Prihodi\&quot;]" />
-    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_9" Path="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) + &quot;\Razhodi\&quot;]" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Subfolder Braintree" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_7" Path="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyy&quot;+&quot;MM&quot;) + &quot;\MinedCrypto\&quot;]" />
+    <ui:CreateDirectory Output="{x:Null}" ContinueOnError="False" DisplayName="Create Subfolder DSK" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_8" Path="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) + &quot;\Prihodi\&quot;]" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_9" Path="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) + &quot;\Razhodi\&quot;]" />
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,94" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;All folders have been created&quot;]" />
   </Sequence>
 </Activity>
