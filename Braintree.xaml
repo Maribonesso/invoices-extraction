@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1088,4000" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="972,4082" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth_Windows;assembly=DateOperationsEntireMonth_Windows" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="68">
       <x:String>System.Activities</x:String>
@@ -36,10 +36,13 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>DateOperationsEntireMonth</x:String>
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>DateOperationsEntireMonth_Windows</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="68">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -74,9 +77,11 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>DateOperationsEntireMonth</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>DateOperationsEntireMonth_Windows</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;1- Logs in to the Braintree website after getting credentials&#xA;2- Finds the last month's invoice to be downloaded&#xA;3- Downloads the invoice&#xA;4- Renames the invoice&#xA;5- Moves the invoice to the current month folder" DisplayName="Braintree main Sequence" sap:VirtualizedContainerService.HintSize="556,3935" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;1- Logs in to the Braintree website after getting credentials&#xA;2- Finds the last month's invoice to be downloaded&#xA;3- Downloads the invoice&#xA;4- Renames the invoice&#xA;5- Moves the invoice to the current month folder" DisplayName="Braintree main Sequence" sap:VirtualizedContainerService.HintSize="556,4017" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -84,9 +89,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="514,94" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Starting Braintree Process&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="514,3463" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="514,3659" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="476,3226" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="476,3422" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="BraintreeUser" />
             <Variable x:TypeArguments="ss:SecureString" Name="BraintreePass" />
@@ -99,8 +104,8 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="434,32" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
-          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Braintree-YonderSpace" DisplayName="Get Credential" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="434,89" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[BraintreePass]" Username="[BraintreeUser]" />
+          <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
+          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Braintree-YonderSpace" CacheStrategy="None" DisplayName="Get Credential" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="434,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[BraintreePass]" Username="[BraintreeUser]" />
           <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Braintree Control Panel" sap:VirtualizedContainerService.HintSize="434,1753" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="f4b5f13c-9e59-4633-a573-6bf8e61e61e7" Version="V1" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
@@ -216,7 +221,7 @@
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
           <ui:RenameFileX DisplayName="Renames Brainttree PDF" FilePath="[SelectFirstFile]" sap:VirtualizedContainerService.HintSize="434,151" sap2010:WorkflowViewState.IdRef="RenameFileX_2" KeepExtension="True" NewName="BraintreeSummary" />
-          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;\Izvlecheniq\BraintreeSummary.pdf&quot;]" DisplayName="Move from Downloads to Izvlecheniq" sap:VirtualizedContainerService.HintSize="434,167" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="C:\Users\maril\Downloads\BraintreeSummary.pdf" />
+          <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022\&quot; + FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;\Izvlecheniq\BraintreeSummary.pdf&quot;]" DisplayName="Move from Downloads to Izvlecheniq" sap:VirtualizedContainerService.HintSize="434,167" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="C:\Users\maril\Downloads\BraintreeSummary.pdf" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>

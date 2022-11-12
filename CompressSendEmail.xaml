@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="CompressSendEmail" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="923,1780" sap2010:WorkflowViewState.IdRef="CompressSendEmail_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth;assembly=DateOperationsEntireMonth" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="CompressSendEmail" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="972,2192" sap2010:WorkflowViewState.IdRef="CompressSendEmail_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DateOperationsEntireMonth_Windows;assembly=DateOperationsEntireMonth_Windows" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="38">
+    <scg:List x:TypeArguments="x:String" Capacity="76">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -39,10 +39,13 @@
       <x:String>System.Security</x:String>
       <x:String>UiPath.Mail.SMTP.Activities</x:String>
       <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>DateOperationsEntireMonth_Windows</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="58">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -73,9 +76,11 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>DateOperationsEntireMonth</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>DateOperationsEntireMonth_Windows</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;1- Message Box Request Antivirus to be disabled (this is necessary, because when anabled UIPath fails to send the email message)&#xA;2-Gets credentials/assets:&#xA;-&gt; Mariliza's Gmail account&#xA;-&gt; To email address&#xA;-&gt; From email address&#xA;-&gt; Sender Name&#xA;3- Compress files&#xA;4- Send SMTP Mail Message" DisplayName="CompressSendEmail" sap:VirtualizedContainerService.HintSize="486,1715" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This process:&#xA;1- Message Box Request Antivirus to be disabled (this is necessary, because when anabled UIPath fails to send the email message)&#xA;2-Gets credentials/assets:&#xA;-&gt; Mariliza's Gmail account&#xA;-&gt; To email address&#xA;-&gt; From email address&#xA;-&gt; Sender Name&#xA;3- Compress files&#xA;4- Send SMTP Mail Message" DisplayName="CompressSendEmail" sap:VirtualizedContainerService.HintSize="400,2127" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:DateTime" Name="FirstDayOfLastMonth" />
       <Variable x:TypeArguments="s:DateTime" Name="LastDayOfLastMonth" />
@@ -92,9 +97,16 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Attention" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="444,94" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Starting process Compress and Send by email. Please, disable Antivirus&quot;]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Mariliza Gmail-SMTP" DisplayName="Get Credential" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="444,89" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[GmailPass]" Username="[GmailUser]" />
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="ToEmail" DisplayName="Get Asset &quot;To Email&quot;" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="444,147" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+    <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Buttons="Ok" Caption="Attention" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="358,94" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Starting process Compress and Send by email. Please, disable Antivirus&quot;]" />
+    <ui:GetRobotCredential AssetName="Mariliza Gmail-SMTP" CacheStrategy="None" DisplayName="Get Credential" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="358,456" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[GmailPass]" Username="[GmailUser]">
+      <ui:GetRobotCredential.TimeoutMS>
+        <InArgument x:TypeArguments="x:Int32" />
+      </ui:GetRobotCredential.TimeoutMS>
+    </ui:GetRobotCredential>
+    <ui:GetRobotAsset AssetName="ToEmail" CacheStrategy="None" DisplayName="Get Asset &quot;To Email&quot;" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="358,181" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+      <ui:GetRobotAsset.TimeoutMS>
+        <InArgument x:TypeArguments="x:Int32" />
+      </ui:GetRobotAsset.TimeoutMS>
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[ToEmail]</OutArgument>
       </ui:GetRobotAsset.Value>
@@ -105,7 +117,10 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotAsset>
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="FromEmail" DisplayName="Get Asset &quot;From Email&quot;" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="444,147" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+    <ui:GetRobotAsset AssetName="FromEmail" CacheStrategy="None" DisplayName="Get Asset &quot;From Email&quot;" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="358,181" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+      <ui:GetRobotAsset.TimeoutMS>
+        <InArgument x:TypeArguments="x:Int32" />
+      </ui:GetRobotAsset.TimeoutMS>
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[FromEmail]</OutArgument>
       </ui:GetRobotAsset.Value>
@@ -116,7 +131,10 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotAsset>
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="SenderName" DisplayName="Get Asset &quot;Sender Email&quot;" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="444,147" sap2010:WorkflowViewState.IdRef="GetRobotAsset_3">
+    <ui:GetRobotAsset AssetName="SenderName" CacheStrategy="None" DisplayName="Get Asset &quot;Sender Email&quot;" FolderPath="YonderSpace" sap:VirtualizedContainerService.HintSize="358,181" sap2010:WorkflowViewState.IdRef="GetRobotAsset_3">
+      <ui:GetRobotAsset.TimeoutMS>
+        <InArgument x:TypeArguments="x:Int32" />
+      </ui:GetRobotAsset.TimeoutMS>
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[SenderName]</OutArgument>
       </ui:GetRobotAsset.Value>
@@ -127,21 +145,21 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotAsset>
-    <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="444,32" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
-    <uascw:CompressFiles Password="{x:Null}" CodePage="Default" CompressedFileInfo="[YonderSpaceZip]" CompressedFileName="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace&quot; +FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) + &quot;.zip&quot;]" CompressionLevel="Normal" DisplayName="Compress/Zip Files" sap:VirtualizedContainerService.HintSize="444,223" sap2010:WorkflowViewState.IdRef="CompressFiles_1" OverrideExistingFile="True">
+    <d:FirstLastDayOfMonth sap:VirtualizedContainerService.HintSize="358,148" sap2010:WorkflowViewState.IdRef="FirstLastDayOfMonth_1" out_FirstDayOfLastMonth="[FirstDayOfLastMonth]" out_LastDayOfLastMonth="[LastDayOfLastMonth]" />
+    <uascw:CompressFiles CompressedResource="{x:Null}" Password="{x:Null}" ResourcesToArchive="{x:Null}" SecurePassword="{x:Null}" CodePage="Default" CompressedFileInfo="[YonderSpaceZip]" CompressedFileName="[&quot;C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace&quot; +FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) + &quot;.zip&quot;]" CompressionLevel="Normal" DisplayName="Compress/Zip Files" EncryptionAlgorithm="Classic" sap:VirtualizedContainerService.HintSize="358,224" sap2010:WorkflowViewState.IdRef="CompressFiles_1" OverrideExistingFile="True">
       <uascw:CompressFiles.ContentToArchive>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace2022</InArgument>
         </scg:List>
       </uascw:CompressFiles.ContentToArchive>
     </uascw:CompressFiles>
-    <ui:SendMail MailMessage="{x:Null}" Body="[&quot;Please, find the&quot; +FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;Invoices attached&quot;]" DisplayName="Send SMTP Mail Message" Email="[GmailUser]" EnableSSL="True" From="[FromEmail]" sap:VirtualizedContainerService.HintSize="444,158" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="[SenderName]" Port="465" SecureConnection="Auto" SecurePassword="[GmailPass]" Server="smtp.gmail.com" Subject="[&quot;Invoices &quot; +FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;)]" To="[ToEmail]">
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Please, find the&quot; +FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;) +&quot;Invoices attached&quot;]" DisplayName="Send SMTP Mail Message" Email="[GmailUser]" EnableSSL="True" From="[FromEmail]" sap:VirtualizedContainerService.HintSize="358,158" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="[SenderName]" Port="465" SecureConnection="Auto" SecurePassword="[GmailPass]" Server="smtp.gmail.com" Subject="[&quot;Invoices &quot; +FirstDayOfLastMonth.ToString(&quot;yyyyMM&quot;)]" To="[ToEmail]">
       <ui:SendMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">["C:\Users\maril\OneDrive\Anexos de email\Área de Trabalho\YonderSpace"+FirstDayOfLastMonth.ToString("yyyyMM") + ".zip"]</InArgument>
         </scg:List>
       </ui:SendMail.Files>
     </ui:SendMail>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:04" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="444,94" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Email with attachment has been sent successfully&quot;]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:04" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="358,94" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Email with attachment has been sent successfully&quot;]" />
   </Sequence>
 </Activity>
